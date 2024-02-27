@@ -1,0 +1,26 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 个人主词库
+#
+# Fython <fang.jia.hui123@gmail.com>
+#
+#
+# 编辑完后重新部署才会生效
+# 「...」以下不能添加备注内容
+
+---
+name: zhcn_simp
+version: "2024.01.02"
+sort: by_weight
+use_preset_vocabulary: false
+import_tables:
+  # 袖珍简化字拼音
+  - pinyin_simp
+  # 现代汉语常用词表，来源 https://github.com/alswl/Rime
+  - xiandaihanyuchangyongcibiao
+  # 肥猫词库，来源 https://github.com/felixonmars/fcitx5-pinyin-zhwiki
+  - zhwiki_20231205
+  # 拼音自定义词语
+  - pinyin_simp_custom
+...

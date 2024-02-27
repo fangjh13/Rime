@@ -1,0 +1,103 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: wubi86
+  name: "五笔86"
+  version: "0.21"
+  author:
+    - 發明人 王永民先生
+  description: |
+    五筆字型86版
+    碼表源自 ibus-table
+    敲 z 键进入双拼（微软）反查
+    支持自动造词不会影响原有候选词顺序
+  dependencies:
+    - double_mspy
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [中文, 西文]
+  - name: full_shape
+    states: [半角, 全角]
+  - name: extended_charset
+    states: [常用, 增廣]
+  - name: ascii_punct
+    states: [。，, ．，]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator@fixed
+    - table_translator
+  filters:
+    - uniquifier
+
+speller:
+  delimiter: " ;'" # 上屛時的音節間分音符
+  # delimiter: " '" # 上屛時的音節間分音符
+  # auto_select: false # 关闭自动上屏
+  # max_code_length: 4 # 形碼最大碼長，超過則頂字上屛
+
+translator:
+  dictionary: zhcn_wubi
+  enable_charset_filter: true
+  enable_completion: true # 提前顯示尚未輸入完整碼的字。若要只出精確匹配輸入碼的候選字，可關閉這一選項
+  enable_sentence: false # 是否开启自动造句整句连打，否则为四码自动上屏
+  enable_encoder: true # 是否开启自动造词
+  encode_commit_history: true # 是否对已上屛词自动成词
+  max_phrase_length: 4 # 自动造词的最长字数
+  enable_user_dict: true # 是否开启用户词典（用户词典记录动态字词频，用户词）
+  # user_dict: zhcn_wubi.userdb
+  # db_class: tabledb # 可設tabledb〔文本〕或userdb〔二進制〕调试的时候开启 使用文本好像同步会有问题
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+
+abc_segmentor:
+  extra_tags:
+    - reverse_lookup
+
+fixed:
+  __include: /translator
+  initial_quality: 10000
+  disable_user_dict_for_patterns:
+    - ".*" # 对所有编码禁用用户词典（不调频，不读取用户词，但不影响自造词写入用户词典）
+
+reverse_lookup:
+  dictionary: zhcn_simp
+  prism: double_mspy
+  prefix: "z"
+  # suffix: "'"
+  tips: 〔双拼〕
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+  bindings:
+    # 使用逗号(,)和句号(.)选择第2,3个候选字
+    - { when: has_menu, accept: comma, send: 2 }
+    - { when: has_menu, accept: period, send: 3 }
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "^z[a-z;]*'?$"

@@ -1,0 +1,48 @@
+patch:
+  schema_list:
+    - schema: double_mspy # 微軟双拼修改版
+    - schema: wubi86 # 五笔86 修改版
+
+  key_binder/bindings:
+    # 使用 - = 对候选字翻页
+    - { when: paging, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
+    # 使用 Tab/Ctrl-n 跳到下一个候选字 Shift+Tab/Ctrl-p 跳到上一个候选字
+    - { when: composing, accept: Tab, send: Down }
+    - { when: composing, accept: ISO_Left_Tab, send: Down }
+    - { when: composing, accept: Shift+Tab, send: Up }
+    - { when: composing, accept: Shift+ISO_Left_Tab, send: Up }
+    - { when: composing, accept: Control+n, send: Down }
+    - { when: composing, accept: Control+p, send: Up }
+    # 删词
+    - { when: composing, accept: Control+k, send: Shift+Delete }
+    # Ctrl+[ 清码
+    - { when: composing, accept: Control+bracketleft, send: Escape }
+
+  switcher/hotkeys: # 這個列表裏每項定義一個快捷鍵，使哪個都中
+    - "Control+s" # 添加 Ctrl+s
+    - "Control+grave" # 你看寫法並不是 Ctrl+` 而是與 IBus 一致的表示法
+    - F4
+
+  ascii_composer/switch_key:
+    Caps_Lock: noop # Caps 键
+    Shift_L: commit_code # 左 Shift，切换中英文
+    Shift_R: commit_text # 右 Shift，已输入的候选文字上屏并切换至英文输入模式
+    Control_L: noop # 左 Control，屏蔽该切换键
+    Control_R: noop # 右 Control，屏蔽该切换键
+
+  recognizer/patterns/punct: "^/([0-9]0?|[A-Za-z]+)$"
+
+  punctuator:
+    # import_preset: symbols
+    symbols:
+      __include: punctuator:/symbols
+      # 自定义候选字
+      "/mail": ["fang.jia.hui123@gmail.com", "616960344@qq.com"]
+    full_shape:
+      __include: punctuator:/full_shape
+    half_shape:
+      __include: punctuator:/half_shape
+
+  menu:
+    page_size: 5 # 候选词数量

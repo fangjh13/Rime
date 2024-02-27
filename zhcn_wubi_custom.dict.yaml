@@ -1,0 +1,27 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 个人主词库
+#
+# Fython <fang.jia.hui123@gmail.com>
+#
+#
+# 编辑完后重新部署才会生效
+# 注意「...」以下为内容
+
+---
+name: zhcn_wubi_custom
+note: "个人主词库"
+version: "2024-02-21"
+last_edit_time: "2024-02-21"
+sort: original # 码表的排序方式 by_weight 权重, original 原始顺序
+# use_preset_vocabulary: true # 是否引入【八股文】的词频词序
+...
+
+# ----- 码表开始 -----
+# 格式：字词 键码  权重 （中间是tab，不是空格）
+# '#'开头的只是注释，所以可以随便分类了
+# 注释只能另起一行写，不能在词条后面写
+
+爱默生	eltg
+维达	xwdp

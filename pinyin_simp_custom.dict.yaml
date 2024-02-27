@@ -1,0 +1,19 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 个人主词库
+#
+# Fython <fang.jia.hui123@gmail.com>
+#
+#
+# 编辑完后重新部署才会生效
+# 「...」以下不能添加备注内容
+
+---
+name: pinyin_simp_custom
+version: "2024.01.02"
+sort: by_weight
+use_preset_vocabulary: false
+...
+
+fang.jia.hui123@gmail.com	gmail
