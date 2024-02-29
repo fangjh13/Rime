@@ -8,12 +8,15 @@ patch:
     - { when: paging, accept: minus, send: Page_Up }
     - { when: has_menu, accept: equal, send: Page_Down }
     # 使用 Tab/Ctrl-n 跳到下一个候选字 Shift+Tab/Ctrl-p 跳到上一个候选字
+    # 如果 Mac 配置候选词横向显式时实现稍有不同 使用Ctrl-f跳到下一个候选字 见https://github.com/rime/squirrel/issues/298
     - { when: composing, accept: Tab, send: Down }
     - { when: composing, accept: ISO_Left_Tab, send: Down }
     - { when: composing, accept: Shift+Tab, send: Up }
     - { when: composing, accept: Shift+ISO_Left_Tab, send: Up }
     - { when: composing, accept: Control+n, send: Down }
     - { when: composing, accept: Control+p, send: Up }
+    - { when: composing, accept: Control+f, send: Right }
+    - { when: composing, accept: Control+b, send: Left }
     # 删词
     - { when: composing, accept: Control+k, send: Shift+Delete }
     # Ctrl+[ 清码

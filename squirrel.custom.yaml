@@ -1,10 +1,12 @@
+# https://github.com/rime/squirrel/blob/master/data/squirrel.yaml
 patch:
     style:
         color_scheme: custom_dark
 
     preset_color_schemes:
         custom_dark:
-          horizontal: true # 水平排列
+          candidate_list_layout: linear  # stacked 竖直排列 | linear 水平排列
+          text_orientation: horizontal  # horizontal | vertical
           inline_preedit: true # 单行显示，false双行显示
           candidate_format: "%c\u2005%@" # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
           corner_radius: 5 # 候选条圆角
@@ -42,9 +44,5 @@ patch:
             ascii_mode: true
         com.apple.systempreferences:
             ascii_mode: true
-        com.apple.Terminal:
-            ascii_mode: true
         com.apple.Dictionary:
-            ascii_mode: true
-        com.raycast.macos:
             ascii_mode: true
