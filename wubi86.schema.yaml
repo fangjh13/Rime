@@ -51,6 +51,7 @@ engine:
     - table_translator@fixed
     - table_translator
   filters:
+    - single_char_filter # 单字优先
     - simplifier@emoji_suggestion
     - uniquifier
 
