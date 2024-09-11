@@ -19,8 +19,9 @@ patch:
     - { when: composing, accept: Control+b, send: Left }
     # 删词
     - { when: composing, accept: Control+k, send: Shift+Delete }
-    # Ctrl+[ 清码
+    # Ctrl+[ / Ctrl+c 清码
     - { when: composing, accept: Control+bracketleft, send: Escape }
+    - { when: composing, accept: Control+c, send: Escape }
 
   switcher/hotkeys: # 這個列表裏每項定義一個快捷鍵，使哪個都中
     - "Control+s" # 添加 Ctrl+s
@@ -42,9 +43,9 @@ patch:
       __include: punctuator:/symbols
       # 自定义候选字
       "/mail": ["fang.jia.hui123@gmail.com", "616960344@qq.com"]
-      "/dq": [🌍,🌎,🌏,🌐,🌑,🌒,🌓,🌔,🌕,🌖,🌗,🌘]
-      "/bq": [😂,😀,😁,😃,😄,😅,😆,😉,😊,😋,😎,😍,😘,😗]
-      "/ss": [💪,👈,👉,👆,👇,✋,👌,👍,👎,✊,👊,👋,👏,👐]
+      "/dq": [🌍, 🌎, 🌏, 🌐, 🌑, 🌒, 🌓, 🌔, 🌕, 🌖, 🌗, 🌘]
+      "/bq": [😂, 😀, 😁, 😃, 😄, 😅, 😆, 😉, 😊, 😋, 😎, 😍, 😘, 😗]
+      "/ss": [💪, 👈, 👉, 👆, 👇, ✋, 👌, 👍, 👎, ✊, 👊, 👋, 👏, 👐]
     full_shape:
       __include: punctuator:/full_shape
     half_shape:
