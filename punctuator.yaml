@@ -3,7 +3,7 @@
 
 config_version: '1.6'
 
-full_shape:
+full_shape: # 全角符号
   ' ' : { commit: '　' }
   ',' : { commit: ， }
   '.' : { commit: 。 }
@@ -37,7 +37,7 @@ full_shape:
   ']' : [ 」, 】, 〕, ］, 〛, 〙 ]
   '{' : [ 『, 〖, ｛ ]
   '}' : [ 』, 〗, ｝ ]
-half_shape:
+half_shape:    # 半角符号
   ',' : { commit: ， }
   '.' : { commit: 。 }
   '<' : [ 《, 〈, «, ‹, ⟨, ˂, ˱ ]
