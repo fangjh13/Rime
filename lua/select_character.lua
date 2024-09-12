@@ -1,4 +1,5 @@
 -- 以词定字选词扩展
+-- https://github.com/BlindingDark/rime-lua-select-character
 
 -- http://lua-users.org/lists/lua-l/2014-04/msg00590.html
 local function utf8_sub(s, i, j)
