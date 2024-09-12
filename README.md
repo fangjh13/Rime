@@ -5,6 +5,7 @@
 - `Ctrl+s` or `Control+grave` or `F4` 切换输入方案
 - 自动造词
 - 自定义词库
+- `/` 键 _试试输入 `/hh` 可自定义_
 - Emoji
 - `Ctrl+[` or `Ctrl+c` 清码
 
