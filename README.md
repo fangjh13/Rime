@@ -2,12 +2,19 @@
 
 五笔86 + 微软双拼反查
 
-- `Ctrl+s` or `Control+grave` or `F4` 切换输入方案
+- `Ctrl+s` or `Control+grave` 切换输入方案
 - 自动造词
 - 自定义词库
-- `/` 键 _试试输入 `/hh` 可自定义_
+- `/` 键 _试试输入 `/hh` 可自定义添加_
 - Emoji
 - `Ctrl+[` or `Ctrl+c` 清码
+
+配置参考文档：
+
+- [Rime 配置文件](https://github.com/rime/home/wiki/Configuration)
+- [RimeWithSchemata](https://github.com/rime/home/wiki/RimeWithSchemata)
+- [Rime 定制指南](https://github.com/rime/home/wiki/CustomizationGuide)
+- [schema.yaml 详解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md)
 
 ## 86 版五笔
 
@@ -127,7 +134,7 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 
 ├── punctuator.yaml                           # 从共享目录复制 `punctuation.yaml` 修改的符号注音映射表
 
-├── default.custom.yaml                       # 全局配置入口
+├── default.yaml                              # 全局配置入口
 
 ├── double_mspy.schema.yaml                   # 微软双拼方案
 ├── zhcn_simp.dict.yaml                       # 双拼主词库主要导入下面子词库

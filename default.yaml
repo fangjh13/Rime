@@ -1,0 +1,105 @@
+# Rime main settings
+# encoding: utf-8
+
+# 要比共享目录的同名文件的 config_version 大才可以生效
+config_version: '2024.9.13'
+
+schema_list:
+    - schema: double_mspy # 微軟双拼修改版
+    - schema: wubi86      # 五笔86 修改版
+
+switcher:
+  # 切换方案时显示的标题
+  caption: 〔方案切换〕
+  # 切换方案的快捷键
+  hotkeys:
+    - "Control+s"
+    - "Control+grave" # Ctrl+`
+  # 开关记忆（方案中的 switches），从方案选单（而非快捷键）切换时会记住的选项，需要记忆的开关不能设定 reset
+  save_options:
+    - full_shape                 # 保留全角模式 
+    - ascii_punct                # 保留西文模式
+    - simplification             # 保留简体/繁体
+    - extended_charset           # 保留扩展字符
+    - zh_hant
+    - zh_hans
+    - zh_hant_tw
+  fold_options: true             # 呼出时是否折叠，多方案时建议折叠 true ，一个方案建议展开 false
+  abbreviate_options: true       # 折叠时是否缩写选项
+  option_list_separator: '／'    # 折叠时的选项分隔符
+
+menu:
+  page_size: 5 # 候选词数量
+
+# 标点符号
+# 设置为一个映射，就自动上屏；设置为多个映射，如 '/' : [ '/', ÷ ] 则进行复选。
+punctuator:
+  # import_preset: symbols
+  symbols:
+    __include: punctuator:/symbols
+    # 自定义候选字
+    "/mail": ["fang.jia.hui123@gmail.com", "616960344@qq.com"]
+    "/hh": [💐, 🌸, 💮, 🪷, 🏵️, 🌹, 🥀, 🌺, 🌻, 🌼, 🌷, 🪻, 🌱, 🪴, 🌲, 🌳, 🌴, 🌵, 🌾, 🌿, ☘️ , 🍀, 🍁, 🍂, 🍃, 🍄, 🪵]
+    "/bq": [😂, 🤩, 🥳, 🎉, 😅, 😆, 💖, 😉, 😊, 😋, 😎, 😍, 😘, 😗]
+    "/ss": [💪, 👈, 👉, 👆, 👇, ✋, 👌, 👍, 👎, ✊, 👊, 👋, 👏, 👐]
+  full_shape:
+    __include: punctuator:/full_shape
+  half_shape:
+    __include: punctuator:/half_shape
+
+# 快捷键
+key_binder:
+  bindings:
+    # 使用 - = 对候选字翻页
+    - { when: paging, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
+    # 使用 Tab/Ctrl-n 跳到下一个候选字 Shift+Tab/Ctrl-p 跳到上一个候选字
+    # 如果 Mac 配置候选词横向显式时实现稍有不同 使用Ctrl-f跳到下一个候选字 见https://github.com/rime/squirrel/issues/298
+    - { when: composing, accept: Tab, send: Down }
+    - { when: composing, accept: ISO_Left_Tab, send: Down }
+    - { when: composing, accept: Shift+Tab, send: Up }
+    - { when: composing, accept: Shift+ISO_Left_Tab, send: Up }
+    - { when: composing, accept: Control+n, send: Down }
+    - { when: composing, accept: Control+p, send: Up }
+    - { when: composing, accept: Control+f, send: Right }
+    - { when: composing, accept: Control+b, send: Left }
+    # 删词
+    - { when: composing, accept: Control+k, send: Shift+Delete }
+    # Ctrl+[ / Ctrl+c 清码
+    - { when: composing, accept: Control+bracketleft, send: Escape }
+    - { when: composing, accept: Control+c, send: Escape }
+
+
+# 处理符合特定规则的输入码，如网址、反查
+# 此处配置较为通用的选项，各方案中另增加了和方案功能绑定的 patterns。
+recognizer:
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
+
+# 中西文切換
+#
+# 可用的按鍵有 Caps_Lock, Shift_L, Shift_R, Control_L, control_R
+# Mac 系統上的鼠鬚管不能區分左、右，因此只有對 Shift_L, Control_L 的設定起作用
+#
+# 已輸入編碼時按切換鍵，可以進一步設定輸入法中西文切換的形式。
+# 可選的臨時切換策略有三：
+# inline_ascii 在輸入法的臨時西文編輯區內輸入字母、數字、符號、空格等，回車上屏後自動復位到中文
+# commit_text 已輸入的候選文字上屏並切換至西文輸入模式
+# commit_code 已輸入的編碼字符上屏並切換至西文輸入模式
+# 設爲 noop，屏蔽該切換鍵
+#
+# 如果要把 Caps Lock 設爲只改變字母的大小寫而不做中西文切換，可將 Caps_Lock 對應的切換方式設爲 noop
+# 如果要以 Caps Lock 切換到西文模式，默認輸出小寫字母，請置 ascii_composer/good_old_caps_lock: false
+# 如果要以 Caps Lock 切換到西文模式，默認輸出大寫字母，請使用以下設置：
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Caps_Lock: noop        # Caps 键，屏蔽该切换键
+    Shift_L: commit_code   # 左 Shift，切换中英文
+    Shift_R: noop          # 右 Shift，屏蔽该切换键
+    Control_L: noop        # 左 Control，屏蔽该切换键
+    Control_R: noop        # 右 Control，屏蔽该切换键
+    Eisu_toggle: clear
