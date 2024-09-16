@@ -45,8 +45,6 @@
 <details>
 <summary>Fcitx5 Android</summary>
 
-[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)
-
 安装 [Fcitx5](https://github.com/fcitx5-android/fcitx5-android) 和 [Rime Plugin](https://f-droid.org/en/packages/org.fcitx.fcitx5.android.plugin.rime/)
 
 - 用户目录：`/storage/emulated/0/Android/data/org.fcitx.fcitx5.android/files/data/rime/`
