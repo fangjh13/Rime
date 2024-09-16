@@ -43,7 +43,7 @@
 <details>
 <summary>Android</summary>
 <details>
-<summary>Trime</summary>
+<summary>Fcitx5 Android</summary>
 
 [Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)
 
