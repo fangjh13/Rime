@@ -46,3 +46,5 @@ patch:
             ascii_mode: true
         com.apple.Dictionary:
             ascii_mode: true
+        com.raycast.macos:
+            ascii_mode: true
