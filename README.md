@@ -2,12 +2,13 @@
 
 五笔86 + 微软双拼反查
 
-- `Ctrl+s` or `Control+grave` 切换输入方案
+- `Control+grave` 切换输入方案
 - 自动造词
 - 自定义词库
 - `/` 键 _试试输入 `/hh` 可自定义添加_
 - Emoji
 - `Ctrl+[` or `Ctrl+c` 清码
+- `Left Shift` 中英切换
 
 配置参考文档：
 
