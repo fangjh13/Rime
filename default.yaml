@@ -37,7 +37,7 @@ punctuator:
   symbols:
     __include: punctuator:/symbols
     # 自定义候选字
-    "/mail": ["fang.jia.hui123@gmail.com", "616960344@qq.com"]
+    "/mail": ["fython.me@gmail.com", "616960344@qq.com"]
     "/hh": [💐, 🌸, 💮, 🪷, 🏵️, 🌹, 🥀, 🌺, 🌻, 🌼, 🌷, 🪻, 🌱, 🪴, 🌲, 🌳, 🌴, 🌵, 🌾, 🌿, ☘️ , 🍀, 🍁, 🍂, 🍃, 🍄, 🪵]
     "/bq": [😂, 🤩, 🥳, 🎉, 😅, 😆, 💖, 😉, 😊, 😋, 😎, 😍, 😘, 😗]
     "/ss": [💪, 👈, 👉, 👆, 👇, ✋, 👌, 👍, 👎, ✊, 👊, 👋, 👏, 👐]
@@ -67,6 +67,10 @@ key_binder:
     # Ctrl+[ / Ctrl+c 清码
     - { when: composing, accept: Control+bracketleft, send: Escape }
     - { when: composing, accept: Control+c, send: Escape }
+    # 使用 Control + Option(Alt) + Shift + E 强切英文
+    - { accept: "Control+Alt+Shift+E", set_option: ascii_mode, when: always }
+    # 使用 Control + Option(Alt) + Shift + C 强切中文
+    - { accept: "Control+Alt+Shift+C", unset_option: ascii_mode, when: always }
 
 
 # 处理符合特定规则的输入码，如网址、反查
