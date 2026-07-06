@@ -1,0 +1,57 @@
+# Rime dictionary
+# mim: set ts=8 sw=8 noet:
+# encoding: utf-8
+#
+# melt_mult_language
+# 在不切换键盘/不寻找符号键盘的前提下，通过拼写简单的中英文混合词条及其他外语或者符号
+# 遵循公认英文或拼音拼写的原则，不为方便个人习惯而生造编码。
+# 如：α的英文拼写为alpha，
+# 不包含希望参与造词的、使用拼音编码的外文字符
+# 如：已经在中文中已经在和“的（de）”互换的“の”，再如 μ - miu。
+---
+name: melt_mult_language
+version: "2024.12.20"
+sort: by_weight
+use_preset_vocabulary: false
+...
+°	degrees
+℉	degreesFahrenheit
+℃	degreeCelsius
+ü	v
+Σ	sigma
+Φ	phi
+φ	phi
+Ω	omega
+ω	omega
+α	alpha
+β	beta
+γ	gamma
+Δ	delta
+ε	epsilon
+ζ	zeta
+η	eta
+θ	theta
+ι	iota
+κ	kappa
+λ	lambda
+μ	mu
+μ	micro
+ν	nu
+ξ	xi
+ο	omicron
+π	pi
+ρ	rho
+σ	sigma
+τ	tau
+υ	upsilon
+χ	chi
+ψ	psi
+I'	i
+AKB48	AKB48
+SNH48	SNH48
+Code::Blocks	CodeBlocks
+I2C	IIC
+K-ON！	kon
+Chiikawa	Chiikawa
+BanG Dream!	BanGDream
+C#	csharp

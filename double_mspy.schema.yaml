@@ -11,6 +11,7 @@ schema:
     MSPY双拼方案
   dependencies:
     - stroke
+    - melt_eng
 
 switches:
   - name: ascii_mode
@@ -46,8 +47,11 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - script_translator
+    - table_translator@melt_eng
   filters:
+    - lua_filter@*en_spacer
     - simplifier@emoji_suggestion
+    - uniquifier
 
 emoji_suggestion:
   opencc_config: emoji.json
@@ -56,8 +60,8 @@ emoji_suggestion:
   inherit_comment: false
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba;
-  initials: zyxwvutsrqponmlkjihgfedcba
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   delimiter: " '"
   algebra:
     - erase/^xx$/
@@ -116,6 +120,7 @@ speller:
 translator:
   dictionary: zhcn_simp
   prism: double_mspy
+  initial_quality: 1.2
   spelling_hints: 8 # 设置多少字以内选定标注完整带调拼音〔仅script_translator有效〕
   enable_user_dict: true # 是否开启用户词典（记录词频，用户词）
   # user_dict: zhcn_simp.userdb
@@ -168,6 +173,14 @@ reverse_lookup:
     - xlit/hspnz/一丨丿丶乙/
   comment_format:
     - xform/([nl])v/$1ü/
+
+melt_eng:
+  dictionary: melt_eng
+  enable_sentence: false # 禁止造句
+  enable_user_dict: false # 禁用用户词典
+  initial_quality: 0.8 #  英文权重
+  comment_format: # 自定义提示码
+    - xform/^.*$// # 清空提示码（就是没有那个小尾巴）
 
 punctuator:
   import_preset: default

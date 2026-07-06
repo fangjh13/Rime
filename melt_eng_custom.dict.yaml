@@ -1,0 +1,9 @@
+# Rime dictionary
+# encoding: utf-8
+---
+name: melt_eng_custom
+version: "2026-07-03"
+sort: by_weight
+use_preset_vocabulary: false
+...
+OpenAI	openai	100
