@@ -1,6 +1,6 @@
 # Rime 输入法配置
 
-个人 Rime 配置，当前主力方案是五笔86（微软双拼反查）+ 微软双拼（笔画反查），辅以英文次翻译器、Emoji、符号表、Lua 扩展和跨平台同步
+Rime 配置，当前主力方案是五笔86（微软双拼反查）+ 微软双拼（笔画反查），辅以英文次翻译器、Emoji、符号表、Lua 扩展
 
 ## 特性
 
@@ -37,20 +37,17 @@
 
 官方默认的86版五笔码表有时候打出的字繁体在前并且可能出现缺字的可能，所以用微软五笔的单字替换官方的字典中的单字参考了[这理](https://github.com/networm/Rime)
 
-- 方案文件：`wubi86.schema.yaml`
-- 主词库入口：`zhcn_wubi.dict.yaml`
-- 个人词库：`zhcn_wubi_custom.dict.yaml`
 - 按 `z` 进入双拼反查，例如在五笔里临时用双拼查字
-- 默认开启 `translator/enable_encoder: true` [自动造词](https://github.com/rime/librime/issues/184)，不会改变码表的候选词位置
 - `fixed` 翻译器禁用用户调频，用来保持基础码表候选顺序稳定
+- 默认开启 `translator/enable_encoder: true` [自动造词](https://github.com/rime/librime/issues/184)，不会改变码表的候选词位置
+- 第二三候选快捷键
+  - 逗号 `,` 第 2 候选
+  - 句号 `.` 第 3 候选
 
 ### 微软双拼
 
 只支持微软的方案，字典全部使用的是简体字，去掉了自带的繁简转换
 
-- 方案文件：`double_mspy.schema.yaml`
-- 主词库入口：`zhcn_simp.dict.yaml`
-- 个人词库：`pinyin_simp_custom.dict.yaml`
 - 使用微软双拼键位，只保留简体输出，不做繁简转换
 - 反查：
   - `` ` ``：进入笔画反查
@@ -63,17 +60,6 @@
 ### 英文输入和中英间距
 
 两个中文方案都挂载了 `table_translator@melt_eng`，因此在中文输入中也会出现英文候选，例如 `ChatGPT`、`OpenAI` 等
-
-相关文件：
-
-- `melt_eng.schema.yaml`：英文方案定义
-- `melt_eng.dict.yaml`：英文主词库入口
-- `melt_eng_base.dict.yaml`：英文基础词库，来自 rime-melt
-- `melt_mult_language.dict.yaml`：中英混输和符号词库
-- `melt_eng_custom.dict.yaml`：个人英文词库
-- `lua/en_spacer.lua`：候选上屏前的中英间距处理
-
-当前行为：
 
 - 英文候选权重为 `initial_quality: 0.8`，默认不抢中文首选
 - 中文后选英文：`我` + `OpenAI` 上屏为 `我 OpenAI`
@@ -97,20 +83,14 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 
 `emoji_suggestion` 默认开启，双拼和五笔都会经过 `simplifier@emoji_suggestion`
 
-`/` 可以触发符号候选。常用自定义入口在 `default.yaml`：
-
-- `/mail`：邮箱
-- `/hh`：花草
-- `/bq`：常用表情
-- `/ss`：手势
-
-完整符号表在 `punctuator.yaml`，包括数学、箭头、罗马数字、拉丁字母、单位、星座、八卦等分类，例如：
+`/` 可以触发符号候选。完整符号表在 `punctuator.yaml`，包括数学、箭头、罗马数字、拉丁字母、单位、星座、八卦等分类，例如：
 
 - `/fh`：符号
 - `/dn`：电脑按键
 - `/jt`：箭头
 - `/sx`：数学符号
-- `/0` 到 `/10`：数字相关符号
+
+常用自定义入口在 `default.yaml`
 
 ## 安装
 
@@ -202,50 +182,19 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 
 ## 自定义
 
-### 添加双拼词条
+### 添加词条
 
-双拼主词库入口是 `zhcn_simp.dict.yaml`，它会导入：
+编辑对应的 `xxxx_custom.dict.yaml` 在 `...` 后添加词条：
 
-- `cn_dicts/pinyin/pinyin_simp`
-- `cn_dicts/pinyin/xiandaihanyuchangyongcibiao`
-- `cn_dicts/pinyin/zhwiki-*`
-- `cn_dicts/pinyin/pinyin_simp_custom`
-
-编辑 `pinyin_simp_custom.dict.yaml`，在 `...` 后添加词条：
-
-```text
-自定义词	zi ding yi ci	100
-```
-
-### 添加五笔词条
-
-五笔主词库入口是 `zhcn_wubi.dict.yaml`，它会导入：
-
-- `cn_dicts/wubi/wubi86`
-- `cn_dicts/wubi/zhcn_wubi_custom`
-
-编辑 `zhcn_wubi_custom.dict.yaml`，在 `...` 后添加词条：
+自定义词条使用 tab 分隔 `字词`、`编码`、`权重`
 
 ```text
 自定义词	xxxx	100
 ```
 
-注意：五笔自定义词条使用 tab 分隔 `字词`、`编码`、`权重`。
-
-### 添加英文词条
-
-英文主词库入口是 `melt_eng.dict.yaml`，它会导入：
-
-- `en_dicts/melt_eng_base`
-- `en_dicts/melt_mult_language`
-- `en_dicts/melt_eng_custom`
-
-编辑 `melt_eng_custom.dict.yaml`，在 `...` 后添加词条：
-
-```text
-OpenAI	OpenAI	100
-ChatGPT	ChatGPT	100
-```
+- 双拼编辑 `pinyin_simp_custom.dict.yaml`
+- 五笔编辑 `zhcn_wubi_custom.dict.yaml`
+- 英文编辑 `melt_eng_custom.dict.yaml`
 
 ### 添加符号和短语
 
@@ -258,33 +207,6 @@ punctuator:
 ```
 
 大量符号分类建议放到 `punctuator.yaml` 的 `symbols` 下
-
-### 调整快捷键
-
-通用快捷键在 `default.yaml` 的 `key_binder/bindings`
-
-方案内快捷键在各自 schema：
-
-- `double_mspy.schema.yaml`：`key_binder/select_first_character` 和 `select_last_character`
-- `wubi86.schema.yaml`：逗号、句号选第 2、3 候选
-
-### 调整中英文切换
-
-编辑 `default.yaml` 的 `ascii_composer/switch_key`
-
-当前配置：
-
-```yaml
-Shift_L: commit_code
-Shift_R: noop
-Caps_Lock: noop
-```
-
-如果希望左 Shift 临时进入行内英文编辑区，可以改为：
-
-```yaml
-Shift_L: inline_ascii
-```
 
 ### 调整模糊音
 
