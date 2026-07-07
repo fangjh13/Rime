@@ -16,10 +16,10 @@ sort: by_weight
 use_preset_vocabulary: false
 import_tables:
   # 袖珍简化字拼音
-  - pinyin_simp
+  - cn_dicts/pinyin/pinyin_simp
   # 现代汉语常用词表，来源 https://github.com/alswl/Rime
-  - xiandaihanyuchangyongcibiao
+  - cn_dicts/pinyin/xiandaihanyuchangyongcibiao
   # 肥猫词库，来源 https://github.com/felixonmars/fcitx5-pinyin-zhwiki
-  - zhwiki-20240909
+  - cn_dicts/pinyin/zhwiki-20240909
   # 拼音自定义词语
-  - pinyin_simp_custom
+  - cn_dicts/pinyin/pinyin_simp_custom

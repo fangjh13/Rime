@@ -67,7 +67,8 @@
 相关文件：
 
 - `melt_eng.schema.yaml`：英文方案定义
-- `melt_eng.dict.yaml`：英文主词库，来自 rime-melt
+- `melt_eng.dict.yaml`：英文主词库入口
+- `melt_eng_base.dict.yaml`：英文基础词库，来自 rime-melt
 - `melt_mult_language.dict.yaml`：中英混输和符号词库
 - `melt_eng_custom.dict.yaml`：个人英文词库
 - `lua/en_spacer.lua`：候选上屏前的中英间距处理
@@ -203,20 +204,25 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 
 ### 添加双拼词条
 
+双拼主词库入口是 `zhcn_simp.dict.yaml`，它会导入：
+
+- `cn_dicts/pinyin/pinyin_simp`
+- `cn_dicts/pinyin/xiandaihanyuchangyongcibiao`
+- `cn_dicts/pinyin/zhwiki-*`
+- `cn_dicts/pinyin/pinyin_simp_custom`
+
 编辑 `pinyin_simp_custom.dict.yaml`，在 `...` 后添加词条：
 
 ```text
 自定义词	zi ding yi ci	100
 ```
 
-双拼主词库入口是 `zhcn_simp.dict.yaml`，它会导入：
-
-- `pinyin_simp`
-- `xiandaihanyuchangyongcibiao`
-- `zhwiki-20240909`
-- `pinyin_simp_custom`
-
 ### 添加五笔词条
+
+五笔主词库入口是 `zhcn_wubi.dict.yaml`，它会导入：
+
+- `cn_dicts/wubi/wubi86`
+- `cn_dicts/wubi/zhcn_wubi_custom`
 
 编辑 `zhcn_wubi_custom.dict.yaml`，在 `...` 后添加词条：
 
@@ -224,14 +230,15 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 自定义词	xxxx	100
 ```
 
-五笔主词库入口是 `zhcn_wubi.dict.yaml`，它会导入：
-
-- `wubi86`
-- `zhcn_wubi_custom`
-
-注意：五笔自定义词条建议使用 tab 分隔 `字词`、`编码`、`权重`。
+注意：五笔自定义词条使用 tab 分隔 `字词`、`编码`、`权重`。
 
 ### 添加英文词条
+
+英文主词库入口是 `melt_eng.dict.yaml`，它会导入：
+
+- `en_dicts/melt_eng_base`
+- `en_dicts/melt_mult_language`
+- `en_dicts/melt_eng_custom`
 
 编辑 `melt_eng_custom.dict.yaml`，在 `...` 后添加词条：
 
@@ -239,11 +246,6 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 OpenAI	OpenAI	100
 ChatGPT	ChatGPT	100
 ```
-
-英文主词库入口是 `melt_eng.dict.yaml`，它会导入：
-
-- `melt_mult_language`
-- `melt_eng_custom`
 
 ### 添加符号和短语
 
@@ -307,6 +309,19 @@ Shift_L: inline_ascii
 │   └── en_spacer.lua                         # 中英候选边界自动补空格
 ├── opencc/                                   # 词语映射文件夹，如 Emoji 实现就在这
 │   └── ...
+├── cn_dicts/                                 # 中文词库
+│   ├── pinyin/                               # 拼音、双拼相关词库
+│   │   ├── pinyin_simp.dict.yaml             # 袖珍简化字拼音词库
+│   │   ├── xiandaihanyuchangyongcibiao.dict.yaml # 现代汉语常用词库
+│   │   ├── zhwiki-*.dict.yaml                # 中文维基百科词库
+│   │   └── pinyin_simp_custom.dict.yaml      # 双拼个人自定义词库
+│   └── wubi/                                 # 五笔相关词库
+│       ├── wubi86.dict.yaml                  # 官方86版五笔字典
+│       └── zhcn_wubi_custom.dict.yaml        # 五笔个人自定义词库
+├── en_dicts/                                 # 英文和中英混输词库
+│   ├── melt_eng_base.dict.yaml               # 英文基础词库
+│   ├── melt_mult_language.dict.yaml          # 中英混输和符号词库
+│   └── melt_eng_custom.dict.yaml             # 英文个人词库
 ├── installation.yaml                         # 安装 Rime 产生的元信息文件包括安装时间、版本信息、机器ID等
 ├── user.yaml                                 # 本机设置 如记住上次使用的输入方案、什么时候用的等
 ├── punctuator.yaml                           # 从共享目录复制 `punctuation.yaml` 修改的符号注音映射表
@@ -314,25 +329,17 @@ Shift_L: inline_ascii
 ├── default.yaml                              # 全局配置入口，方案列表、快捷键、标点、recognizer、中英文切换
 │
 ├── double_mspy.schema.yaml                   # 微软双拼方案
-├── zhcn_simp.dict.yaml                       # 双拼主词库主要导入下面子词库
-├── pinyin_simp.dict.yaml                     #  - 袖珍简化字拼音词库
-├── xiandaihanyuchangyongcibiao.dict.yaml     #  - 现代汉语常用词库
-├── zhwiki_*.dict.yaml                        #  - 中文维基百科词库
-├── pinyin_simp_custom.dict.yaml              #  - 个人自定义词库可自行添加
+├── zhcn_simp.dict.yaml                       # 双拼主词库入口，导入 cn_dicts/pinyin/ 下的子词库
 ├── zhcn_simp.userdb/                         # 使用双拼中中产生的二进制的用户词典 如开启同步就是同步此字典
 │   └── ...
 │
 ├── wubi86.schema.yaml                        # 五笔输入方案
-├── zhcn_wubi.dict.yaml                       # 五笔主词库主要导入下面子词库
-├── wubi86.dict.yaml                          #  - 官方86版五笔字典
-├── zhcn_wubi_custom.dict.yaml                #  - 个人自定义词库可自行添加
+├── zhcn_wubi.dict.yaml                       # 五笔主词库入口，导入 cn_dicts/wubi/ 下的子词库
 ├── zhcn_wubi.userdb/                         # 使用五笔中产生的二进制的用户词典 如开启同步就是同步此字典
 │   └── ...
 │
 ├── melt_eng.schema.yaml                      # 英文次翻译器方案
-├── melt_eng.dict.yaml                        # 英文主词库
-├── melt_mult_language.dict.yaml              # 中英混输和符号词库
-├── melt_eng_custom.dict.yaml                 # 英文个人词库
+├── melt_eng.dict.yaml                        # 英文主词库入口，导入 en_dicts/ 下的子词库
 │
 ├── squirrel.custom.yaml                      # mac 鼠须管前端配置文件，外观和应用级默认状态
 └── rime_dict_manager                         # 字典管理 mac 上用

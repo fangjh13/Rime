@@ -31,6 +31,6 @@ encoder:
       formula: "AaBaCaZa"
 import_tables:
   # 86 版五笔码表
-  - wubi86
+  - cn_dicts/wubi/wubi86
   # 个人私有词库
-  - zhcn_wubi_custom
+  - cn_dicts/wubi/zhcn_wubi_custom
