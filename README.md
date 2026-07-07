@@ -35,14 +35,18 @@
 
 ### 五笔86
 
+官方默认的86版五笔码表有时候打出的字繁体在前并且可能出现缺字的可能，所以用微软五笔的单字替换官方的字典中的单字参考了[这理](https://github.com/networm/Rime)
+
 - 方案文件：`wubi86.schema.yaml`
 - 主词库入口：`zhcn_wubi.dict.yaml`
 - 个人词库：`zhcn_wubi_custom.dict.yaml`
 - 按 `z` 进入双拼反查，例如在五笔里临时用双拼查字
-- `translator/enable_encoder: true` 开启自动造词
+- 默认开启 `translator/enable_encoder: true` [自动造词](https://github.com/rime/librime/issues/184)，不会改变码表的候选词位置
 - `fixed` 翻译器禁用用户调频，用来保持基础码表候选顺序稳定
 
 ### 微软双拼
+
+只支持微软的方案，字典全部使用的是简体字，去掉了自带的繁简转换
 
 - 方案文件：`double_mspy.schema.yaml`
 - 主词库入口：`zhcn_simp.dict.yaml`
@@ -51,7 +55,7 @@
 - 反查：
   - `` ` ``：进入笔画反查
   - 笔画编码使用 `hspnz`，预编辑显示为 `一丨丿丶乙`
-- 以词定字：
+- [以词定字](https://github.com/BlindingDark/rime-lua-select-character)：
   - `[`：取当前候选词的第一个字
   - `]`：取当前候选词的最后一个字
   - 实现文件：`lua/select_character.lua`
@@ -87,6 +91,8 @@ melt_eng:
 数值越大，英文候选越靠前；数值越小，对中文输入干扰越少
 
 ### Emoji 和符号
+
+Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/opencc) 整理的
 
 `emoji_suggestion` 默认开启，双拼和五笔都会经过 `simplifier@emoji_suggestion`
 
