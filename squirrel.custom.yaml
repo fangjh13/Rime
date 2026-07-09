@@ -51,7 +51,7 @@ patch:
   # 右键『应用.app』-> 显示包内容
   # Contents/Info.plist -> BundleIdentifier
   # Bundle Identifier:
-  #   ascii_mode: true     默认英文
+  #   ascii_mode: true     默认英文（只在应用首次获得焦点时生效一次，此后会记住状态，也就是不会每次都切到该应用就变成英文）
   #   ascii_mode: false    默认中文
   #   ascii_punct: true    开启英文标点
   #   vim_mode: true       按esc切英文
@@ -61,23 +61,3 @@ patch:
       ascii_mode: true
     com.apple.systempreferences:
       ascii_mode: true
-    com.apple.Safari:
-      ascii_mode: true
-    com.apple.finder:
-      ascii_mode: true
-    com.apple.Dictionary:
-      ascii_mode: true
-    com.raycast.macos:
-      ascii_mode: true
-    com.github.wez.wezterm:
-      ascii_mode: true
-    net.kovidgoyal.kitty:
-      ascii_mode: true
-    com.mitchellh.ghostty:
-      ascii_mode: true
-    com.google.Chrome:
-      ascii_mode: true
-    org.mozilla.firefox:
-      ascii_mode: true
-    com.tencent.xinWeChat:
-      ascii_mode: false
