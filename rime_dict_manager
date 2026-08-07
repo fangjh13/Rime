@@ -1,8 +1,30 @@
 #!/bin/bash
 #
-# put this script in ~/Library/Rime, list existing user dictionaries:
+# Rime dictionary manager wrapper for Squirrel on macOS.
+#
+# Put this script in the Rime user directory and run it from there. Switch to
+# a non-Rime input source and stop Squirrel before accessing user databases:
+#   killall Squirrel
+#   cd ~/Library/Rime
+#
+# List existing user dictionaries:
 # ./rime_dict_manager --list
-# see other supported options:
+#
+# Restore one user dictionary snapshot. The target dictionary name is read
+# from metadata in the snapshot:
+# ./rime_dict_manager --restore /path/to/zhcn_wubi.userdb.txt
+#
+# Back up one user dictionary or synchronize all local user dictionaries:
+# ./rime_dict_manager --backup zhcn_wubi
+# ./rime_dict_manager --sync
+#
+# Restore cloud-conflict snapshots serially. Plain `fd -x` runs commands in
+# parallel and causes contention on .temp.userdb/LOCK, so --threads=1 is
+# required. Do not use `fd -X`; --restore accepts one snapshot per invocation:
+# fd --type f --glob '*.userdb*Conflict*.txt' /path/to/RimeSync \
+#   --threads=1 -x ./rime_dict_manager --restore {}
+#
+# Show all supported options:
 # ./rime_dict_manager
 
 DYLD_LIBRARY_PATH="/Library/Input Methods/Squirrel.app/Contents/Frameworks" "/Library/Input Methods/Squirrel.app/Contents/MacOS/rime_dict_manager" $@

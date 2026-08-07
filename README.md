@@ -274,9 +274,14 @@ punctuator:
 - `sync_dir`: 用于同步的目录，各种云同步此文件夹就行
 - `installation_id`: 用于区分不同设备，每个设备的 `installation_id` 都不同，同步时会在 `sync_dir` 中创建一个以 `installation_id` 为名的文件夹
 
-> 同步会同步用户配置文件夹下的文件但不会同步子文件夹
-> 主要是同步用户输入中产生的 `*.userdb/` 文件夹内的二进制用户词典，会转成可读的 `*.userdb.txt` 文件到 `{sync_dir}/{installation_id}`
-> `build/` 是部署产物，会重新生成，`installation.yaml` 和 `user.yaml` 含有本机状态
+```
+1. 同步会同步用户配置文件夹下的文件但不会同步子文件夹
+2. 主要是同步用户输入中产生的 `*.userdb/` 文件夹内的二进制用户词典，会转成可读的 `*.userdb.txt` 文件到 `{sync_dir}/{installation_id}`
+3. `build/` 是部署产物，会重新生成，`installation.yaml` 和 `user.yaml` 含有本机状态
+4. 可以在 `installation.yaml` 中添加 `backup_config_files: false` 来关闭配置文件的同步备份
+```
+
+具体的同步机制和冲突处理请参考 [用户词典管理](docs/dict-manager.md)
 
 ## Reference
 
