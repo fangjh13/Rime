@@ -1,0 +1,1025 @@
+# 独立主题：Gboard 紫灰·紧凑（v3）
+# 参照官方 Trime v3.3.13
+# 将此文件放入 Rime 用户目录，部署后选择“Gboard 紫灰·紧凑”。
+# 高度：style.keyboard_height=200；每行50dp，键帽高约40dp。
+# 需要稍高时改为210或220。不要仅改key_height。
+# 默认中文模式；z为原始字母；长按B/L/句号发送半角分号。
+# 角标中的单个空格用于隐藏长按标签，不影响长按功能。
+config_version: "3.0"
+name: Gboard 紫灰·紧凑
+author: Screenshot-based independent theme
+description: 四行 26 键，200dp 主键区，Gboard 紫灰键帽
+style:
+  auto_caps: false
+  keyboard_height: 200
+  keyboard_height_land: 160
+  key_height: 50
+  key_width: 10
+  horizontal_gap: 5
+  vertical_gap: 10
+  keyboard_padding: 2
+  keyboard_padding_bottom: 0
+  keyboard_padding_land: 20
+  keyboard_padding_land_bottom: 0
+  round_corner: 8
+  key_border: 0
+  shadow_radius: 0
+  key_text_size: 24
+  key_long_text_size: 15
+  symbol_text_size: 10
+  key_text_offset_y: 0
+  candidate_view_height: 34
+  comment_height: 12
+  candidate_text_size: 18
+  candidate_padding: 8
+  candidate_spacing: 0
+  candidate_corner_radius: 8
+  comment_position: right
+  comment_text_size: 11
+  label_text_size: 10
+  popup_width: 40
+  popup_height: 52
+  popup_key_height: 52
+  popup_bottom_margin: 56
+  popup_text_size: 26
+  reset_ascii_mode_on_focus_change: false
+  enter_label_mode: 0
+  enter_labels:
+    default: ic@keyboard_return
+    search: ic@magnify
+    send: ic@send
+    done: ic@check
+    go: ic@arrow_right
+    next: ic@keyboard_tab
+    pre: ic@arrow_left
+preedit:
+  horizontal_padding: 8
+  top_start_radius: 8
+  top_end_radius: 8
+  foreground:
+    font_size: 16
+preset_color_schemes:
+  default:
+    name: Gboard 紫灰·紧凑
+    back_color: "#1C1E2A"
+    root_background: "#1C1E2A"
+    keyboard_back_color: "#1C1E2A"
+    candidate_background: "#1C1E2A"
+    liquid_keyboard_background: "#1C1E2A"
+    text_back_color: "#1C1E2A"
+    border_color: "#1C1E2A"
+    candidate_border_color: "#1C1E2A"
+    candidate_separator_color: "#00000000"
+    text_color: "#E1E3EF"
+    candidate_text_color: "#E1E3EF"
+    comment_text_color: "#BBC0D0"
+    label_color: "#BBC0D0"
+    hilited_text_color: "#E0E1FF"
+    hilited_back_color: "#1C1E2A"
+    hilited_candidate_text_color: "#E0E1FF"
+    hilited_candidate_back_color: "#414465"
+    hilited_comment_text_color: "#E0E1FF"
+    hilited_label_color: "#E0E1FF"
+    hilited_candidate_button_color: "#414465"
+    key_back_color: "#353944"
+    key_text_color: "#E1E3EF"
+    key_symbol_color: "#BBC0D0"
+    key_border_color: "#00000000"
+    hilited_key_back_color: "#565C7C"
+    hilited_key_text_color: "#E0E1FF"
+    hilited_key_symbol_color: "#E0E1FF"
+    hilited_key_border_color: "#00000000"
+    off_key_back_color: "#414465"
+    off_key_text_color: "#E0E1FF"
+    off_key_symbol_color: "#BBC0D0"
+    off_key_border_color: "#00000000"
+    on_key_back_color: "#D3D5FC"
+    on_key_text_color: "#1C1E2A"
+    on_key_symbol_color: "#1C1E2A"
+    on_key_border_color: "#00000000"
+    hilited_off_key_back_color: "#565C7C"
+    hilited_off_key_text_color: "#E0E1FF"
+    hilited_off_key_symbol_color: "#E0E1FF"
+    hilited_off_key_border_color: "#00000000"
+    hilited_on_key_back_color: "#565C7C"
+    hilited_on_key_text_color: "#E0E1FF"
+    hilited_on_key_symbol_color: "#E0E1FF"
+    hilited_on_key_border_color: "#00000000"
+    popup_back_color: "#414465"
+    popup_text_color: "#E0E1FF"
+    long_text_back_color: "#353944"
+    shadow_color: "#00000000"
+    functional_face: "#414465"
+    functional_text: "#E0E1FF"
+    normal_face: "#353944"
+    normal_text: "#E1E3EF"
+    toolbar_face: "#1C1E2A"
+    toolbar_text: "#E1E3EF"
+preset_keys:
+  Shift_L:
+    label: ic@arrow_up_bold_outline
+    send: Shift_L
+    shift_lock: ascii_long
+    functional: true
+  BackSpace:
+    label: ic@backspace_outline
+    send: BackSpace
+    repeatable: true
+    functional: true
+  Return:
+    label: enter_labels
+    send: Return
+    functional: true
+  Return_raw:
+    label: ic@keyboard_return
+    send: Return
+    functional: true
+  Space:
+    label: " "
+    send: space
+    functional: false
+  Mode_switch:
+    toggle: ascii_mode
+    send: SWITCH_CHARSET
+    states:
+      - 中
+      - EN
+  Zenkaku_Hankaku:
+    toggle: full_shape
+    send: SWITCH_CHARSET
+    states:
+      - 半角
+      - 全角
+  Keyboard_editor:
+    label: 编辑
+    functional: false
+    send: Eisu_toggle
+    select: editor
+  Keyboard_default:
+    label: 返回
+    functional: false
+    send: Eisu_toggle
+    select: .default
+  Up:
+    label: ↑
+    send: Up
+    repeatable: true
+  Down:
+    label: ↓
+    send: Down
+    repeatable: true
+  Home:
+    label: Home
+    send: Home
+    repeatable: true
+  End:
+    label: End
+    send: End
+    repeatable: true
+  Undo:
+    label: 撤销
+    send: Control+z
+  Redo:
+    label: 重做
+    send: Control+y
+  Tab:
+    label: Tab
+    send: Tab
+  liquid_keyboard_emoji:
+    label: 🙂
+    send: FUNCTION
+    command: liquid_keyboard
+    # Trime v3.3.13 resolves liquid tabs by display name, not keyboard id.
+    option: 表情
+  IME_switch:
+    label: ic@web
+    send: LANGUAGE_SWITCH
+    functional: true
+  Menu:
+    label: ic@view_grid
+    send: MENU
+    functional: true
+  menu_keyboard:
+    label: ic@view_grid
+    send: FUNCTION
+    command: menu_keyboard
+    functional: true
+  Settings:
+    label: ic@cog
+    send: SETTINGS
+    functional: true
+  Hide:
+    label: ic@keyboard_close
+    send: BACK
+    functional: true
+  Escape:
+    label: ic@close_circle_outline
+    send: Escape
+    functional: true
+  Keyboard_numbers:
+    label: ?123
+    send: Eisu_toggle
+    select: numbers
+    functional: true
+  Keyboard_symbols:
+    label: =\<
+    send: Eisu_toggle
+    select: symbols
+    functional: true
+  Keyboard_letters:
+    label: ABC
+    send: Eisu_toggle
+    select: .default
+    functional: true
+  Emoji:
+    label: ic@emoticon_outline
+    send: FUNCTION
+    command: liquid_keyboard
+    option: 表情
+  Clipboard:
+    label: ic@clipboard_text_outline
+    send: FUNCTION
+    command: clipboard_window
+    option: "0"
+  Liquid_exit:
+    label: 返回
+    send: FUNCTION
+    command: liquid_keyboard
+    option: "-1"
+  Liquid_space:
+    label: 空格
+    send: space
+  Liquid_backspace:
+    label: ⌫
+    send: BackSpace
+    repeatable: true
+  Liquid_return:
+    label: ↵
+    send: Return
+  Liquid_clipboard:
+    label: 剪贴
+    send: FUNCTION
+    command: clipboard_window
+    option: "0"
+  Left:
+    label: ic@arrow_left
+    send: Left
+  Right:
+    label: ic@arrow_right
+    send: Right
+  Copy:
+    label: 复制
+    send: Control+c
+  Cut:
+    label: 剪切
+    send: Control+x
+  Paste:
+    label: 粘贴
+    send: Control+v
+  Select_all:
+    label: 全选
+    send: Control+a
+preset_keyboards:
+  default:
+    name: Gboard 紫灰 26 键
+    width: 10
+    height: 50
+    ascii_mode: 0
+    reset_ascii_mode: false
+    label_transform: none
+    keys:
+      - click: q
+        width: 10
+        label_symbol: "1"
+        long_click: "1"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: w
+        width: 10
+        label_symbol: "2"
+        long_click: "2"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: e
+        width: 10
+        label_symbol: "3"
+        long_click: "3"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: r
+        width: 10
+        label_symbol: "4"
+        long_click: "4"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: t
+        width: 10
+        label_symbol: "5"
+        long_click: "5"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: y
+        width: 10
+        label_symbol: "6"
+        long_click: "6"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: u
+        width: 10
+        label_symbol: "7"
+        long_click: "7"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: i
+        width: 10
+        label_symbol: "8"
+        long_click: "8"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: o
+        width: 10
+        label_symbol: "9"
+        long_click: "9"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - click: p
+        width: 10
+        label_symbol: "0"
+        long_click: "0"
+        key_symbol_offset_x: 10
+        key_symbol_offset_y: -1
+      - width: 5
+      - click: a
+        width: 10
+        label_symbol: " "
+        long_click: Select_all
+      - click: s
+        width: 10
+        label_symbol: " "
+        long_click: "@"
+      - click: d
+        width: 10
+        label_symbol: " "
+        long_click: "#"
+      - click: f
+        width: 10
+        label_symbol: " "
+        long_click: $
+      - click: g
+        width: 10
+        label_symbol: " "
+        long_click: "%"
+      - click: h
+        width: 10
+        label_symbol: " "
+        long_click: "!"
+      - click: j
+        width: 10
+        label_symbol: " "
+        long_click: "&"
+      - click: k
+        width: 10
+        label_symbol: " "
+        long_click: "*"
+      - click: l
+        width: 10
+        label_symbol: " "
+        long_click: ;
+      - width: 5
+      - click: Shift_L
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        key_text_size: 26
+      - click: z
+        width: 10
+        label_symbol: " "
+        long_click: "`"
+      - click: x
+        width: 10
+        label_symbol: " "
+        long_click: Cut
+      - click: c
+        width: 10
+        label_symbol: " "
+        long_click: Copy
+      - click: v
+        width: 10
+        label_symbol: " "
+        long_click: Paste
+      - click: b
+        width: 10
+        label_symbol: " "
+        long_click: ;
+      - click: n
+        width: 10
+        label_symbol: " "
+        long_click: ":"
+      - click: m
+        width: 10
+        label_symbol: " "
+        long_click: "?"
+      - click: BackSpace
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: Escape
+        key_text_size: 26
+      - click: Keyboard_numbers
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        long_click: Menu
+        key_text_size: 15
+      - click: ","
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: Menu
+      - click: Emoji
+        width: 10
+        label_symbol: " "
+        key_back_color: normal_face
+        key_text_color: normal_text
+        long_click: IME_switch
+        key_text_size: 24
+      - click: Space
+        width: 40
+        label_symbol: " "
+        long_click: Mode_switch
+        swipe_left: Left
+        swipe_right: Right
+      - click: .
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: ;
+      - click: Return
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        composing: Return_raw
+        key_text_size: 26
+  wubi86:
+    import_preset: default
+  double_mspy:
+    import_preset: default
+  qwerty:
+    import_preset: default
+  qwerty_:
+    import_preset: default
+  editor:
+    name: 编辑键盘
+    width: 20
+    height: 50
+    ascii_mode: 1
+    reset_ascii_mode: false
+    label_transform: none
+    keys:
+      - { click: Select_all, width: 20 }
+      - { click: Home, width: 20 }
+      - { click: Up, width: 20 }
+      - { click: End, width: 20 }
+      - {
+          click: BackSpace,
+          width: 20,
+          key_back_color: functional_face,
+          key_text_color: functional_text,
+        }
+      - { click: Cut, width: 20 }
+      - { click: Left, width: 20 }
+      - { click: Space, width: 20 }
+      - { click: Right, width: 20 }
+      - { click: Paste, width: 20 }
+      - { click: Copy, width: 20 }
+      - { click: Undo, width: 20 }
+      - { click: Down, width: 20 }
+      - { click: Redo, width: 20 }
+      - {
+          click: Return_raw,
+          width: 20,
+          key_back_color: functional_face,
+          key_text_color: functional_text,
+        }
+      - {
+          click: Keyboard_default,
+          width: 100,
+          height: 50,
+          key_back_color: functional_face,
+          key_text_color: functional_text,
+        }
+  numbers:
+    name: 数字与标点
+    width: 10
+    height: 50
+    ascii_mode: 0
+    reset_ascii_mode: false
+    label_transform: none
+    keys:
+      - click: "1"
+        width: 10
+        label_symbol: " "
+      - click: "2"
+        width: 10
+        label_symbol: " "
+      - click: "3"
+        width: 10
+        label_symbol: " "
+      - click: "4"
+        width: 10
+        label_symbol: " "
+      - click: "5"
+        width: 10
+        label_symbol: " "
+      - click: "6"
+        width: 10
+        label_symbol: " "
+      - click: "7"
+        width: 10
+        label_symbol: " "
+      - click: "8"
+        width: 10
+        label_symbol: " "
+      - click: "9"
+        width: 10
+        label_symbol: " "
+      - click: "0"
+        width: 10
+        label_symbol: " "
+      - click: "@"
+        width: 10
+        label_symbol: " "
+      - click: "#"
+        width: 10
+        label_symbol: " "
+      - click: $
+        width: 10
+        label_symbol: " "
+      - click: _
+        width: 10
+        label_symbol: " "
+      - click: "&"
+        width: 10
+        label_symbol: " "
+      - click: "-"
+        width: 10
+        label_symbol: " "
+      - click: +
+        width: 10
+        label_symbol: " "
+      - click: (
+        width: 10
+        label_symbol: " "
+      - click: )
+        width: 10
+        label_symbol: " "
+      - click: /
+        width: 10
+        label_symbol: " "
+      - click: Keyboard_symbols
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        key_text_size: 15
+      - click: ":"
+        width: 10
+        label_symbol: " "
+      - click: ;
+        width: 10
+        label_symbol: " "
+      - click: '"'
+        width: 10
+        label_symbol: " "
+      - click: "'"
+        width: 10
+        label_symbol: " "
+      - click: "!"
+        width: 10
+        label_symbol: " "
+      - click: "?"
+        width: 10
+        label_symbol: " "
+      - click: \
+        width: 10
+        label_symbol: " "
+      - click: BackSpace
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        key_text_size: 26
+      - click: Keyboard_letters
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        long_click: Menu
+        key_text_size: 15
+      - click: ","
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: Menu
+      - click: Emoji
+        width: 10
+        label_symbol: " "
+        key_back_color: normal_face
+        key_text_color: normal_text
+        long_click: IME_switch
+        key_text_size: 24
+      - click: Space
+        width: 40
+        label_symbol: " "
+        long_click: Mode_switch
+        swipe_left: Left
+        swipe_right: Right
+      - click: .
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: ;
+      - click: Return
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        composing: Return_raw
+        key_text_size: 26
+  symbols:
+    name: 更多符号
+    width: 10
+    height: 50
+    ascii_mode: 0
+    reset_ascii_mode: false
+    label_transform: none
+    keys:
+      - click: "~"
+        width: 10
+        label_symbol: " "
+      - click: "`"
+        width: 10
+        label_symbol: " "
+      - click: "|"
+        width: 10
+        label_symbol: " "
+      - click: •
+        width: 10
+        label_symbol: " "
+      - click: √
+        width: 10
+        label_symbol: " "
+      - click: π
+        width: 10
+        label_symbol: " "
+      - click: ÷
+        width: 10
+        label_symbol: " "
+      - click: ×
+        width: 10
+        label_symbol: " "
+      - click: ¶
+        width: 10
+        label_symbol: " "
+      - click: ∆
+        width: 10
+        label_symbol: " "
+      - click: £
+        width: 10
+        label_symbol: " "
+      - click: ¢
+        width: 10
+        label_symbol: " "
+      - click: €
+        width: 10
+        label_symbol: " "
+      - click: ¥
+        width: 10
+        label_symbol: " "
+      - click: ^
+        width: 10
+        label_symbol: " "
+      - click: °
+        width: 10
+        label_symbol: " "
+      - click: "="
+        width: 10
+        label_symbol: " "
+      - click: "{"
+        width: 10
+        label_symbol: " "
+      - click: "}"
+        width: 10
+        label_symbol: " "
+      - click: "%"
+        width: 10
+        label_symbol: " "
+      - click: Keyboard_numbers
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        key_text_size: 15
+      - click: "["
+        width: 10
+        label_symbol: " "
+      - click: "]"
+        width: 10
+        label_symbol: " "
+      - click: <
+        width: 10
+        label_symbol: " "
+      - click: ">"
+        width: 10
+        label_symbol: " "
+      - click: \
+        width: 10
+        label_symbol: " "
+      - click: ":"
+        width: 10
+        label_symbol: " "
+      - click: ;
+        width: 10
+        label_symbol: " "
+      - click: BackSpace
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        key_text_size: 26
+      - click: Keyboard_letters
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        long_click: Menu
+        key_text_size: 15
+      - click: ","
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: Menu
+      - click: Emoji
+        width: 10
+        label_symbol: " "
+        key_back_color: normal_face
+        key_text_color: normal_text
+        long_click: IME_switch
+        key_text_size: 24
+      - click: Space
+        width: 40
+        label_symbol: " "
+        long_click: Mode_switch
+        swipe_left: Left
+        swipe_right: Right
+      - click: .
+        width: 10
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 8
+        long_click: ;
+      - click: Return
+        width: 15
+        label_symbol: " "
+        key_back_color: functional_face
+        key_text_color: functional_text
+        round_corner: 1000
+        composing: Return_raw
+        key_text_size: 26
+tool_bar:
+  # primary_button 固定在左侧；buttons 会从右向左排列。
+  primary_button:
+    size: [36, 36]
+    background:
+      type: circle
+      corner_radius: 10
+      normal: toolbar_face
+      highlight: hilited_key_back_color
+      vertical_inset: 4
+      horizontal_inset: 4
+    foreground:
+      style: ic@dots_horizontal
+      normal: toolbar_text
+      highlight: functional_text
+      font_size: 18
+      padding: 7
+    action: menu_keyboard
+    long_press_action: Settings
+
+  button_spacing: 7
+  back_style: ic@arrow_left
+
+  # Buttons are listed right to left: Hide, Chinese/English, Emoji,
+  # Clipboard, Editor, and Half/Full-width.
+  buttons:
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        style: ic@keyboard_close
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 18
+        padding: 7
+      action: Hide
+
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        option_styles: ["中", "En"]
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 16
+        padding: 8
+      action: Mode_switch
+
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        style: ic@emoticon
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 18
+        padding: 7
+      action: liquid_keyboard_emoji
+
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        style: ic@clipboard
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 18
+        padding: 7
+      action: Clipboard
+
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        style: ic@cursor_text
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 18
+        padding: 7
+      action: Keyboard_editor
+
+    - size: [36, 36]
+      background:
+        type: circle
+        corner_radius: 10
+        normal: toolbar_face
+        highlight: hilited_key_back_color
+        vertical_inset: 4
+        horizontal_inset: 4
+      foreground:
+        option_styles: [ic@moon_full, ic@moon_new]
+        normal: toolbar_text
+        highlight: functional_text
+        font_size: 18
+        padding: 7
+      action: Zenkaku_Hankaku
+
+liquid_keyboard:
+  single_width: 44
+  key_height: 40
+  margin_x: 2
+  fixed_key_bar:
+    position: bottom
+    keys:
+      - Liquid_exit
+      - Liquid_space
+      - Liquid_backspace
+      - Liquid_return
+      - Liquid_clipboard
+  keyboards:
+    - emoji
+  emoji:
+    name: 表情
+    type: SINGLE
+    keys:
+      - 😀
+      - 😃
+      - 😄
+      - 😁
+      - 😆
+      - 😅
+      - 😂
+      - 🤣
+      - 🙂
+      - 🙃
+      - 😉
+      - 😊
+      - 😍
+      - 🥰
+      - 😘
+      - 😎
+      - 🤔
+      - 😐
+      - 😑
+      - 🙄
+      - 😴
+      - 😮
+      - 😯
+      - 😲
+      - 😳
+      - 🥺
+      - 😢
+      - 😭
+      - 😤
+      - 😠
+      - 😡
+      - 🤯
+      - 🥳
+      - 🤗
+      - 🤝
+      - 👍
+      - 👎
+      - 👏
+      - 🙌
+      - 🙏
+      - 💪
+      - 👌
+      - ✌️
+      - ❤️
+      - 💔
+      - 🔥
+      - 🎉
+      - ✨
+      - 🌹
+      - ☀️
+      - 🌙
+      - ⭐
+      - ☕
+      - 🍵
+      - 🍺
+      - 🍻
+      - 🍎
+      - 🍉
+      - 🎂
+      - 🍜
+      - 🚗
+      - ✈️
+      - 🏠
+      - 💻
+      - 📱
+      - ⌨️
+      - 📚
+      - ✅
+      - ❌
+      - ❓
+      - ❗

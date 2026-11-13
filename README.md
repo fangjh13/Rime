@@ -112,6 +112,22 @@ Emoji 表情使用 [雾凇拼音](https://github.com/iDvel/rime-ice/tree/main/op
 - 系统共享目录：`/data/user_de/0/org.fcitx.fcitx5.android/usr/share/rime-data/`
 
 </details>
+
+<details>
+<summary>Trime</summary>
+
+安装 [trime](https://github.com/osfans/trime)
+
+配置在 `/sdcard/Android/data/com.osfans.trime/files/rime` 需要新增 `default.custom.yaml`
+
+```yaml
+patch:
+  schema_list:
+    - schema: wubi86
+    - schema: double_mspy
+```
+
+</details>
 </details>
 
 <details>
