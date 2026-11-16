@@ -138,6 +138,7 @@ preset_keys:
     label: " "
     send: space
     functional: false
+    slide_cursor: true
   Mode_switch:
     toggle: ascii_mode
     send: SWITCH_CHARSET
@@ -449,12 +450,11 @@ preset_keyboards:
         label_symbol: " "
         key_back_color: normal_face
         key_text_color: normal_text
-        long_click: IME_switch
+        long_click: Mode_switch
         key_text_size: 24
       - click: Space
         width: 40
         label_symbol: " "
-        long_click: Mode_switch
         swipe_left: Left
         swipe_right: Right
       - click: .
@@ -643,12 +643,11 @@ preset_keyboards:
         label_symbol: " "
         key_back_color: normal_face
         key_text_color: normal_text
-        long_click: IME_switch
+        long_click: Mode_switch
         key_text_size: 24
       - click: Space
         width: 40
         label_symbol: " "
-        long_click: Mode_switch
         swipe_left: Left
         swipe_right: Right
       - click: .
@@ -789,12 +788,11 @@ preset_keyboards:
         label_symbol: " "
         key_back_color: normal_face
         key_text_color: normal_text
-        long_click: IME_switch
+        long_click: Mode_switch
         key_text_size: 24
       - click: Space
         width: 40
         label_symbol: " "
-        long_click: Mode_switch
         swipe_left: Left
         swipe_right: Right
       - click: .
